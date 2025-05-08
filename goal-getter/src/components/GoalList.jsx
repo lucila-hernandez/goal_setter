@@ -1,6 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { markCompleted, setEditing } from '../redux/goalSlice';
 
+const formatDate = (dateStr) => {
+  const d = new Date(dateStr);
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${month}/${day}/${year}`;
+};
+
 export default function GoalList() {
   const goals = useSelector((state) => state.goals);
   const filter = useSelector((state) => state.filters);
@@ -9,14 +17,12 @@ export default function GoalList() {
 
   let visibleGoals = [...goals];
 
-  // Filter
   if (filter === 'completed') {
     visibleGoals = visibleGoals.filter(g => g.completedDate);
   } else if (filter === 'incomplete') {
     visibleGoals = visibleGoals.filter(g => !g.completedDate);
   }
 
-  // Sort
   if (sortBy === 'title') {
     visibleGoals.sort((a, b) => a.title.localeCompare(b.title));
   } else if (sortBy === 'date') {
@@ -28,10 +34,10 @@ export default function GoalList() {
       {visibleGoals.map((goal) => (
         <li key={goal.id} className="bg-gray-100 p-4 rounded shadow">
           <h2 className="font-semibold text-lg">{goal.title}</h2>
-          <p>Start: {goal.startDate}</p>
-          <p>Target: {goal.targetDate}</p>
+          <p>Start: {formatDate(goal.startDate)}</p>
+          <p>Target: {formatDate(goal.targetDate)}</p>
           {goal.completedDate ? (
-            <p className="text-green-600">✅ Completed on {goal.completedDate}</p>
+            <p className="text-green-600">✅ Completed on {formatDate(goal.completedDate)}</p>
           ) : (
             <button
               onClick={() => dispatch(markCompleted(goal.id))}

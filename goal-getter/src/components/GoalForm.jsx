@@ -24,12 +24,10 @@ export default function GoalForm() {
 
     if (editingGoal) {
       dispatch(updateGoal({ id: editingGoal.id, title, startDate, targetDate }));
-      // optional: clear editing state here (see step 4)
     } else {
       dispatch(addGoal(title, startDate, targetDate));
     }
 
-    // Clear form
     setTitle('');
     setStartDate('');
     setTargetDate('');
