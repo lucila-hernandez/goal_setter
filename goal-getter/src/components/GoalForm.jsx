@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoal, updateGoal } from '../redux/goalSlice';
+import { motion } from 'framer-motion';
 
 export default function GoalForm() {
   const dispatch = useDispatch();
@@ -34,11 +35,11 @@ export default function GoalForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 rounded shadow-md">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 rounded-lg shadow-md">
       <label className="block font-medium">Goal Title</label>
       <input
         type="text"
-        className="block w-full border p-2 rounded"
+        className="block w-full border p-2 rounded-lg"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -48,7 +49,7 @@ export default function GoalForm() {
           <label className="block font-medium">Start Date</label>
           <input
             type="date"
-            className="block w-full border p-2 rounded"
+            className="block w-full border p-2 rounded-lg"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
@@ -58,16 +59,21 @@ export default function GoalForm() {
           <label className="block font-medium">Target Date</label>
           <input
             type="date"
-            className="block w-full border p-2 rounded"
+            className="block w-full border p-2 rounded-lg"
             value={targetDate}
             onChange={(e) => setTargetDate(e.target.value)}
           />
         </div>
       </div>
 
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+      <motion.button 
+        type="submit" 
+        className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        >
         {editingGoal ? 'Update Goal' : 'Add Goal'}
-      </button>
+      </motion.button>
     </form>
   );
 }
