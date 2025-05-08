@@ -43,21 +43,27 @@ export default function GoalForm() {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <label className="block font-medium">Start Date</label>
-      <input
-        type="date"
-        className="block w-full border p-2 rounded"
-        value={startDate}
-        onChange={(e) => setStartDate(e.target.value)}
-      />
+      <div className="flex gap-4">
+        <div className="flex-1">
+          <label className="block font-medium">Start Date</label>
+          <input
+            type="date"
+            className="block w-full border p-2 rounded"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
 
-      <label className="block font-medium">Target Date</label>
-      <input
-        type="date"
-        className="block w-full border p-2 rounded"
-        value={targetDate}
-        onChange={(e) => setTargetDate(e.target.value)}
-      />
+        <div className="flex-1">
+          <label className="block font-medium">Target Date</label>
+          <input
+            type="date"
+            className="block w-full border p-2 rounded"
+            value={targetDate}
+            onChange={(e) => setTargetDate(e.target.value)}
+          />
+        </div>
+      </div>
 
       <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
         {editingGoal ? 'Update Goal' : 'Add Goal'}
