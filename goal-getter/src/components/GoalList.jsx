@@ -33,7 +33,7 @@ export default function GoalList() {
   return (
     <ul className="mt-4 space-y-2">
       {visibleGoals.map((goal) => (
-        <li key={goal.id} className="bg-gray-100 p-4 rounded-lg shadow">
+        <li key={goal.id} className="bg-white p-4 rounded-lg shadow">
           <h2 className="font-semibold text-lg">{goal.title}</h2>
           <p>Start: {formatDate(goal.startDate)}</p>
           <p>Target: {formatDate(goal.targetDate)}</p>
@@ -42,7 +42,7 @@ export default function GoalList() {
           ) : (
             <motion.button
               onClick={() => dispatch(markCompleted(goal.id))}
-              className="mt-2 mr-2 text-sm bg-green-500 text-white px-3 py-1 rounded-lg"
+              className="mt-2 mr-2 text-sm bg-green-500 hover:bg-green-400 text-white px-3 py-1 rounded-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -51,7 +51,7 @@ export default function GoalList() {
           )}
           <motion.button
             onClick={() => dispatch(setEditing(goal.id))}
-            className="mt-2 text-sm bg-yellow-500 text-white px-3 py-1 rounded-lg"
+            className="mt-2 text-sm bg-yellow-500 hover:bg-yellow-400 text-white px-3 py-1 rounded-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

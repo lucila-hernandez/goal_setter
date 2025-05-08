@@ -36,7 +36,7 @@ export default function GoalForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 rounded-lg shadow-md">
-      <label className="block font-medium">Goal Title</label>
+      <label className="block font-medium">Goal Title:</label>
       <input
         type="text"
         className="block w-full border p-2 rounded-lg"
@@ -46,7 +46,7 @@ export default function GoalForm() {
 
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block font-medium">Start Date</label>
+          <label className="block font-medium">Start Date:</label>
           <input
             type="date"
             className="block w-full border p-2 rounded-lg"
@@ -56,7 +56,7 @@ export default function GoalForm() {
         </div>
 
         <div className="flex-1">
-          <label className="block font-medium">Target Date</label>
+          <label className="block font-medium">Target Date:</label>
           <input
             type="date"
             className="block w-full border p-2 rounded-lg"
