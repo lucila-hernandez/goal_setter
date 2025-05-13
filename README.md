@@ -20,8 +20,8 @@
 <details>
   <summary>Click for a preview of the app</summary>
 
-  ![Goal Setter Screenshot](./src/assets/goal_setter.png)  
-  ![Goal Example](./src/assets/goal_example.png)
+  ![Goal Setter Screenshot](./goal-getter/src/assets/goal_example.png)  
+  ![Goal Example](./goal-getter/src/assets/goal_example.png)
 
 </details>
 
