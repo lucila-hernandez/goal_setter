@@ -18,13 +18,12 @@
 - **Vite** as the front-end tooling for fast development
 
 <details>
-  <summary>Click to view the app</summary>
+  <summary>Click for a preview of the app</summary>
 
   ![Goal Setter Screenshot](./goal_setter.png)  
   ![Goal Example](./goal_example.png)
 
 </details>
-
 
 ---
 
