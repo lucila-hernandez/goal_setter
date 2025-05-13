@@ -3,10 +3,17 @@ import { markCompleted, setEditing } from '../redux/goalSlice';
 import { motion } from 'framer-motion';
 
 const formatDate = (dateStr) => {
-  const d = new Date(dateStr);
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  const year = d.getFullYear();
+  if (dateStr.includes('T')) {
+    // Detects and formats 'completedDate' stored as an ISO timestamp
+    const d = new Date(dateStr);
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${month}/${day}/${year}`;
+  }
+
+  // Standard YYYY-MM-DD format (from input fields)
+  const [year, month, day] = dateStr.split('-');
   return `${month}/${day}/${year}`;
 };
 
