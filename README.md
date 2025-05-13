@@ -10,7 +10,7 @@
 - Edit existing goals
 - Filter between all, completed, and incomplete goals
 
-**This project uses:**
+### **This project uses:**
 - **React** for building UI components
 - **Redux Toolkit** for managing global state
 - **Tailwind CSS** for styling
