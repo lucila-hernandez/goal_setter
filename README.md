@@ -1,10 +1,10 @@
-# 🎯 Goal Setter
+# **🎯 Goal Setter**
 
-## Project Description
+## **Project Description**
 
 **Goal Setter** is a simple and interactive React + Redux app that lets users set personal goals with start and target dates. It offers a clean UI, filtering for completed/incomplete goals, and subtle animations using Framer Motion and Tailwind CSS.
 
-**Goal Setter allows users to:**
+### **Goal Setter allows users to:**
 - Add a new goal with a title, start date, and target date
 - Mark goals as completed
 - Edit existing goals
@@ -37,26 +37,26 @@
 
 ## How to Run the App
 
-1. **Clone the repository:**
+1. Clone the repository:
 
 ```sh
    git clone https://github.com/your-username/goal-setter.git
    cd goal-getter
 ```
 
-2. **Install dependencies:**
+2. Install dependencies:
 
 ```sh
    npm install
 ```
 
-3. **Start the development server:**
+3. Start the development server:
 
 ```sh
     npm run dev
 ```
 
-4. **Navigate to http://localhost:5173 in your browser to view the app.**
+4. Navigate to http://localhost:5173 in your browser to view the app.
 
 
 
