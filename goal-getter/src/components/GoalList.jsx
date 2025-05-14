@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { markCompleted, setEditing } from '../redux/goalSlice';
+import { markCompleted, setEditing, duplicateGoal } from '../redux/goalSlice';
 import { motion } from 'framer-motion';
 
 const formatDate = (dateStr) => {
@@ -40,10 +40,24 @@ export default function GoalList() {
   return (
     <ul className="mt-4 space-y-2">
       {visibleGoals.map((goal) => (
-        <li key={goal.id} className="bg-white p-4 rounded-lg shadow">
-          <h2 className="font-semibold text-lg">{goal.title}</h2>
+        <li key={goal.id} className="bg-white p-4 rounded-lg shadow relative">
+          <div className="flex justify-between items-start">
+            <h2 className="font-semibold text-lg">{goal.title}</h2>
+            {!goal.completedDate && (
+              <motion.button
+                onClick={() => dispatch(setEditing(goal.id))}
+                className="text-sm bg-yellow-500 hover:bg-yellow-400 text-white px-3 py-1 rounded-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Edit
+              </motion.button>
+            )}
+          </div>
+
           <p>Start: {formatDate(goal.startDate)}</p>
           <p>Target: {formatDate(goal.targetDate)}</p>
+
           {goal.completedDate ? (
             <p className="text-green-600">✅ Completed on {formatDate(goal.completedDate)}</p>
           ) : (
@@ -56,14 +70,16 @@ export default function GoalList() {
               Mark Completed
             </motion.button>
           )}
+
           <motion.button
-            onClick={() => dispatch(setEditing(goal.id))}
-            className="mt-2 text-sm bg-yellow-500 hover:bg-yellow-400 text-white px-3 py-1 rounded-lg"
+            onClick={() => dispatch(duplicateGoal(goal.id))}
+            className="mt-2 text-sm bg-pink-600 hover:bg-pink-500 text-white px-3 py-1 rounded-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Edit
+            Duplicate
           </motion.button>
+
         </li>
       ))}
     </ul>

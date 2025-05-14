@@ -38,6 +38,17 @@ const goalSlice = createSlice({
       }
     },
 
+    duplicateGoal: (state, action) => {
+      const original = state.find(g => g.id === action.payload);
+      if (original) {
+        state.push({
+          ...original,
+          id: nanoid(),
+          completedDate: null,
+        });
+      }
+    },
+
     setEditing: (state, action) => {
       const id = action.payload;
       state.forEach(goal => {
@@ -47,5 +58,5 @@ const goalSlice = createSlice({
   },
 });
 
-export const { addGoal, markCompleted, updateGoal, setEditing } = goalSlice.actions;
+export const { addGoal, markCompleted, updateGoal, duplicateGoal, setEditing } = goalSlice.actions;
 export default goalSlice.reducer;
